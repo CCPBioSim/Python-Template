@@ -1,61 +1,104 @@
 [build-system]
-# Build the package with [flit](https://flit.readthedocs.io)
-requires = ["flit_core >=3.4,<4"]
+requires = ["flit_core>=3.4,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-# See https://www.python.org/dev/peps/pep-0621/
-name = "REPO-NAME"
+name = "example_package_YOUR_USERNAME_HERE"
 dynamic = ["version"]
-description = ""
+
+description = "Short description of your package"
 authors = [
-    # {name = "", email = ""},
+    { name = "Your Name", email = "you@example.com" },
 ]
 maintainers = [
-    # {name = "", email = ""}
+    { name = "Your Name", email = "you@example.com" }
 ]
+
 readme = "README.md"
 license = { file = "LICENSE" }
+requires-python = ">=3.12"
+
 classifiers = [
-    "Programming Language :: Python",
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
-    "Intended Audience :: Science/Research",
     "License :: OSI Approved :: MIT License",
     "Natural Language :: English",
-    "Development Status :: "
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries",
 ]
-keywords = []
-requires-python = ">=3.12"
+
+keywords = ["template", "python", "package"]
+
 dependencies = [
+    # Add runtime dependencies here (empty for template)
 ]
 
 [project.urls]
-# Homepage = ""
-# Repository = ""
-# Documentation = ""
+Homepage = "https://github.com/CCPBioSim/Python-Template/"
+Repository = "https://github.com/CCPBioSim/Python-Template.git"
+Documentation = "https://Python-Template.github.io/"
+
+#
+# Optional dependency groups
+#
 
 [project.optional-dependencies]
-testing = [
-    "pytest>=9.0,<10.0",
-    "pytest-cov>=7.0,<8.0",
-    "pytest-sugar>=1.1,<2.0"
-]
 
-pre-commit = [
+# Developer tools: linting, testing, pre-commit, type-checking
+dev = [
+    "ruff>=0.4.0",
+    "pytest>=9.0,<10.0",
+    "pytest-cov>=4.0,<5.0",
+    "pytest-sugar>=1.0,<2.0",
     "pre-commit>=4.5,<5.0",
     "pylint>=4.0,<5.0"
 ]
+
+# Documentation stack (optional)
 docs = [
-    "sphinx>=7.0,<8.0",
+    "sphinx>=7,<8",
     "nbsphinx>=0.9,<1.0",
     "sphinx_rtd_theme>=3,<3.1",
+    "sphinx_copybutton>=0.5,<1.0",
     "sphinxcontrib-contentui>=0.2,<1.0",
     "sphinxcontrib-details-directive>=0.1,<1.0",
-    "sphinx_copybutton>=0.5,<1.0",
     "furo>=2025.0,<2026.0",
     "markupsafe>=3.0,<4.0"
 ]
 
+# Run `example-cli` mapped to a Python function
 [project.scripts]
+# example-cli = "example_package.cli:main"  # Uncomment and modify if you add CLI scripts
+
+#
+# Ruff configuration inside pyproject (recommended)
+#
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+fix = true
+exclude = ["docs/*", "build/*"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]   # base checks + import sort
+ignore = ["E501"]              # override if long lines ok (depends on preference)
+fixable = ["ALL"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = true
+
+#
+# Pytest configuration
+#
+
+[tool.pytest.ini_options]
+minversion = "9.0"
+addopts = "--cov --cov-report=term-missing"
+testpaths = ["tests"]
