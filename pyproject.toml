@@ -1,0 +1,61 @@
+[build-system]
+# Build the package with [flit](https://flit.readthedocs.io)
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+# See https://www.python.org/dev/peps/pep-0621/
+name = "REPO-NAME"
+dynamic = ["version"]
+description = ""
+authors = [
+    # {name = "", email = ""},
+]
+maintainers = [
+    # {name = "", email = ""}
+]
+readme = "README.md"
+license = { file = "LICENSE" }
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Development Status :: "
+]
+keywords = []
+requires-python = ">=3.12"
+dependencies = [
+]
+
+[project.urls]
+# Homepage = ""
+# Repository = ""
+# Documentation = ""
+
+[project.optional-dependencies]
+testing = [
+    "pytest>=9.0,<10.0",
+    "pytest-cov>=7.0,<8.0",
+    "pytest-sugar>=1.1,<2.0"
+]
+
+pre-commit = [
+    "pre-commit>=4.5,<5.0",
+    "pylint>=4.0,<5.0"
+]
+docs = [
+    "sphinx>=7.0,<8.0",
+    "nbsphinx>=0.9,<1.0",
+    "sphinx_rtd_theme>=3,<3.1",
+    "sphinxcontrib-contentui>=0.2,<1.0",
+    "sphinxcontrib-details-directive>=0.1,<1.0",
+    "sphinx_copybutton>=0.5,<1.0",
+    "furo>=2025.0,<2026.0",
+    "markupsafe>=3.0,<4.0"
+]
+
+[project.scripts]
