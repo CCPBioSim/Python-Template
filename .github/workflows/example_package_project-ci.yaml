@@ -1,0 +1,71 @@
+name: example_package_YOUR_USERNAME_HERE CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '0 8 * * 1-5'
+  workflow_dispatch:
+
+jobs:
+  tests:
+    name: Run tests
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-24.04, windows-2025, macos-15]
+        python-version: ["3.12", "3.13", "3.14"]
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install example_package_YOUR_USERNAME_HERE and its testing dependencies
+        run: pip install -e .[testing]
+
+      - name: Run test suite
+        run: pytest --cov example_package_YOUR_USERNAME_HERE --cov-report term-missing --cov-append .
+
+      - name: Coveralls GitHub Action
+        uses: coverallsapp/github-action@5cbfd81b66ca5d10c19b062c04de0199c215fb6e # v2.3.7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  docs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
+      - name: Set up Python 3.14
+        uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
+        with:
+          python-version: 3.14.0
+      - name: Install python dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -e .[docs]
+    #   - name: Build docs
+    #     run: cd docs && make
+
+  pre-commit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
+      - name: Set up Python 3.14
+        uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
+        with:
+          python-version: 3.14.0
+      - name: Install python dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -e .[pre-commit,docs,testing]
+      - name: Run pre-commit
+        run: |
+          pre-commit install
+          pre-commit run --all-files || ( git status --short ; git diff ; exit 1 )
