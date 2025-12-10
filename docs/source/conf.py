@@ -8,7 +8,6 @@
 
 project = 'CCPBioSim-Python-Template'
 copyright = '2025, CCPBioSim'
-author = 'CCPBioSim'
 release = '0.0.1'
 
 # -- General configuration ---------------------------------------------------
