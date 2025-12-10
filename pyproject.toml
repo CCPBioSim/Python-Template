@@ -100,5 +100,5 @@ docstring-code-format = true
 
 [tool.pytest.ini_options]
 minversion = "9.0"
-addopts = "--cov --cov-report=term-missing"
+addopts = "--cov=example_package_YOUR_USERNAME_HERE --cov-report=term-missing"
 testpaths = ["tests"]
