@@ -1,0 +1,26 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Python Template Repository
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Firstname
+    family-names: Surname
+    email: you@example.com
+    affiliation: Institute
+    orcid: 'https://orcid.org/0000-0000-0000-0000'
+repository-code: 'https://github.com/CCPBioSim/Python-Template'
+abstract: >-
+  A template repository for Python projects within the
+  CCPBioSim organisation
+keywords:
+  - Template
+  - Python
+  - Package
+license: MIT
+version: 0.0.1
+date-released: '2025-12-10'
