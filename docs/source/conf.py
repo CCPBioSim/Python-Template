@@ -14,11 +14,21 @@ release = '0.0.1'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-   'sphinx.ext.duration',
-   'sphinx.ext.doctest',
-   'sphinx.ext.autodoc',
-   'sphinx.ext.autosummary',
+    "sphinx.ext.autosummary",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.mathjax",
+    "sphinx.ext.viewcode",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.extlinks",
+    "nbsphinx",
+    "sphinx_copybutton",
 ]
+
+autosummary_generate = True
+napoleon_google_docstring = False
+napoleon_use_param = False
+napoleon_use_ivar = True
 
 templates_path = ['_templates']
 exclude_patterns = []
