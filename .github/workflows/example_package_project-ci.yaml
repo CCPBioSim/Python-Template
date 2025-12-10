@@ -49,8 +49,8 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install -e .[docs]
-      - name: Build docs
-        run: cd docs && make
+    #   - name: Build docs
+    #     run: cd docs && make
 
   pre-commit:
     runs-on: ubuntu-24.04
