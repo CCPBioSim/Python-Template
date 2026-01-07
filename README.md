@@ -1,6 +1,6 @@
 Python-Template
 ==============================
-A template repository for Python projects within the CCPBioSim organisation
+A template repository for Python projects within the CCPBioSim organisation. To use this template please refer to the [Python Template Documentation](https://ccpbiosim.github.io/new-software.html#python-repository-template) on the [CCPBioSim Developers Resources](https://ccpbiosim.github.io/index.html).
 
 ## Project Status
 
