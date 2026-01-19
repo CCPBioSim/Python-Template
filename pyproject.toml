@@ -3,7 +3,7 @@ requires = ["flit_core>=3.4,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "example_package_YOUR_USERNAME_HERE"
+name = "example_package"
 dynamic = ["version"]
 
 description = "Short description of your package"
@@ -100,5 +100,5 @@ docstring-code-format = true
 
 [tool.pytest.ini_options]
 minversion = "9.0"
-addopts = "--cov=example_package_YOUR_USERNAME_HERE --cov-report=term-missing"
+addopts = "--cov=example_package --cov-report=term-missing"
 testpaths = ["tests"]
