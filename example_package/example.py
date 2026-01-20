@@ -1,4 +1,4 @@
-# src/example_package_YOUR_USERNAME_HERE/example.py
+# src/example_package/example.py
 
 
 def placeholder():

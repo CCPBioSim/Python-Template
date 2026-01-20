@@ -11,7 +11,7 @@ def temp_test_dir():
     Provides a temporary test directory with a 'logs' subfolder.
     Automatically cleans up after the test.
     """
-    test_dir = tempfile.mkdtemp(prefix="example_package_YOUR_USERNAME_HERE_")
+    test_dir = tempfile.mkdtemp(prefix="example_package_")
     logs_path = os.path.join(test_dir, "logs")
     os.makedirs(logs_path, exist_ok=True)
 

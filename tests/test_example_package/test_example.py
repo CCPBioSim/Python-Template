@@ -1,11 +1,11 @@
-# tests/test_example_package_YOUR_USERNAME_HERE/test_example.py
+# tests/test_example_package/test_example.py
 
-from example_package_YOUR_USERNAME_HERE.example import placeholder
+from example_package.example import placeholder
 
 
 class TestExamplePackage:
     """
-    Class-based placeholder tests for example_package_YOUR_USERNAME_HERE.
+    Class-based placeholder tests for example_package.
 
     - Demonstrates using a test class with pytest.
     - Can easily be extended with more methods for real tests.
