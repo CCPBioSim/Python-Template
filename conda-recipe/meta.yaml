@@ -1,0 +1,44 @@
+{% set name = "example_package" %}
+{% set version = "0.0.0" %}
+{% set pyproject = load_file_data("../pyproject.toml", from_recipe_dir=True) %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  path: ..
+
+build:
+  noarch: python
+  script: python -m pip install . -vv --no-deps
+  # Uncomment and modify if you add CLI scripts in pyproject.toml
+  # entry_points:
+  #   - example-cli=example_package.cli:main
+
+requirements:
+  host:
+    - python {{ pyproject["project"]["requires-python"] }}
+    - pip
+    - flit-core >=4,<5
+  run:
+    - python {{ pyproject["project"]["requires-python"] }}
+    {% for dependency in pyproject["project"]["dependencies"] %}
+    - {{ dependency | lower }}
+    {% endfor %}
+
+test:
+  imports:
+    - example_package
+
+about:
+  home: https://github.com/CCPBioSim/Python-Template
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  license_url: https://github.com/CCPBioSim/Python-Template/blob/main/LICENSE
+  summary: Short description of your package
+  description: Short description of your package
+  dev_url: https://github.com/CCPBioSim/Python-Template
+  doc_url: https://ccpbiosim-python-template.readthedocs.io/en/latest/
+  doc_source_url: https://github.com/CCPBioSim/Python-Template/blob/main/README.md

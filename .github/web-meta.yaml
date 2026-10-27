@@ -1,0 +1,7 @@
+shortdesc: "Short description of your package"
+longdesc: "A longer description of your package, shown on the CCPBioSim website."
+category: "scientific"
+image: "example-package-logo.svg"
+pypi: true
+conda: true
+ghcr: false
