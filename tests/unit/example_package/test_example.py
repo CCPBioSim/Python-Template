@@ -1,4 +1,4 @@
-# tests/test_example_package/test_example.py
+# tests/unit/example_package/test_example.py
 
 from example_package.example import placeholder
 
