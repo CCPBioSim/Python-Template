@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   update-license-year:
-    uses: CCPBioSim/.github/.github/workflows/maintenance-license-year.yaml@edc3732fa8d31a58312ca784e65cad9bdfba9347 # 0.13.0
+    uses: CCPBioSim/.github/.github/workflows/maintenance-license-year.yaml@853030dbbbef0fb1a3c4e8923f9ec03acfda3924 # 0.16.0
     permissions:
       contents: write
       pull-requests: write
