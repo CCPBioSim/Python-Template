@@ -16,7 +16,7 @@ concurrency:
 jobs:
   coveralls:
     name: Build main coverage baseline
-    uses: CCPBioSim/.github/.github/workflows/ci-test-python.yaml@853030dbbbef0fb1a3c4e8923f9ec03acfda3924 # 0.16.0
+    uses: CCPBioSim/.github/.github/workflows/ci-test-python.yaml@f72e64d2dc791ad5ceda145777a3922895d92a5d # 0.17.0
     permissions:
       contents: read
       checks: write
