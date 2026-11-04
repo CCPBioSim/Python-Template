@@ -3,17 +3,11 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-# -- Path setup --------------------------------------------------------------
-import os
-import sys
+import importlib.metadata
 import time
 
-# Put the repository root on sys.path so autodoc imports the local package.
-DOCS_DIR = os.path.abspath(os.path.dirname(__file__))
-REPO_ROOT = os.path.abspath(os.path.join(DOCS_DIR, ".."))
-sys.path.insert(0, REPO_ROOT)
-
 # -- Project information -----------------------------------------------------
+# Change these for your project.
 project = "CCPBioSim-Python-Template"
 copyright_first_year = "2025"
 copyright_owners = "CCPBioSim"
@@ -27,24 +21,18 @@ copyright_year_string = (
 )
 copyright = f"{copyright_year_string}, {copyright_owners}. All rights reserved"
 
-version = ""
-release = ""
+# Read from the installed package, so it matches the release.
+release = importlib.metadata.version("example_package")
 
 # -- General configuration ---------------------------------------------------
 extensions = [
-    "sphinx.ext.autosummary",
-    "sphinx.ext.autodoc",
     "sphinx.ext.mathjax",
     "sphinx.ext.viewcode",
     "sphinx.ext.napoleon",
     "sphinx.ext.intersphinx",
     "sphinx.ext.extlinks",
-    "nbsphinx",
-    "sphinx_copybutton",
+    "autoapi.extension",
 ]
-
-# Autosummary (API stubs)
-autosummary_generate = True
 
 # Napoleon: Google-style docstrings
 napoleon_google_docstring = True
@@ -52,6 +40,25 @@ napoleon_numpy_docstring = False
 napoleon_use_param = True
 napoleon_use_rtype = True
 napoleon_use_ivar = True
+
+# API reference generated from the source by sphinx-autoapi
+autoapi_dirs = ["../../example_package"]
+autoapi_root = "reference"
+autoapi_add_toctree_entry = False
+autoapi_member_order = "groupwise"
+# Include the __init__ docstring, where the constructor arguments are documented
+autoapi_python_class_content = "both"
+autoapi_options = [
+    "members",
+    "undoc-members",
+    "show-inheritance",
+    "show-module-summary",
+]
+
+# Show type hints in the parameter list rather than the signature
+autodoc_typehints = "description"
+add_module_names = False
+python_maximum_signature_line_length = 88
 
 templates_path = ["_templates"]
 
@@ -62,5 +69,7 @@ language = "en"
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 # -- Options for HTML output -------------------------------------------------
-html_theme = "furo"
+# The shared CCPBioSim theme. Change github_repo to your repository's name.
+html_theme = "ccpbiosim_sphinx_theme"
+html_context = {"github_repo": "Python-Template"}
 html_static_path = ["_static"]
