@@ -49,8 +49,7 @@ Documentation = "https://Python-Template.github.io/"
 [project.optional-dependencies]
 testing = [
     "pytest>=9.0,<10.0",
-    "pytest-cov>=7.0,<8.0",
-    "pytest-sugar>=1.1,<2.0"
+    "pytest-cov>=7.0,<8.0"
 ]
 
 pre-commit = [
